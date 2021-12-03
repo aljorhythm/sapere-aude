@@ -1,26 +1,26 @@
 package collection
 
 type collection struct {
-	articles []*Article
-	userId   string
+	collectionItems []*CollectionItem
+	userId          string
 }
 
 func (c *collection) GetUserId() string {
 	return c.userId
 }
 
-func (c *collection) AddArticle(article *Article) error {
-	c.articles = append(c.articles, article)
+func (c *collection) AddCollectionItem(article *CollectionItem) error {
+	c.collectionItems = append(c.collectionItems, article)
 	return nil
 }
 
-func (c *collection) GetArticles() ([]*Article, error) {
-	return c.articles, nil
+func (c *collection) GetCollectionItems() ([]*CollectionItem, error) {
+	return c.collectionItems, nil
 }
 
 type Collection interface {
-	GetArticles() ([]*Article, error)
-	AddArticle(*Article) error
+	GetCollectionItems() ([]*CollectionItem, error)
+	AddCollectionItem(*CollectionItem) error
 	GetUserId() string
 }
 

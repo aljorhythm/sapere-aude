@@ -12,19 +12,19 @@ func TestCollection(t *testing.T) {
 
 	assert.Equal(t, userId, collection.GetUserId())
 	t.Run("Add new article to collection", func(t *testing.T) {
-		article := NewArticle(
+		article := NewCollectionItem(
 			"some.place.in.the.world",
 			"hello",
 			[]*Tag{},
 		)
-		err := collection.AddArticle(article)
+		err := collection.AddCollectionItem(article)
 
 		assert.NoError(t, err)
 
-		t.Run("Get articles in collection", func(t *testing.T) {
-			articles, err := collection.GetArticles()
+		t.Run("Get collectionItems in collection", func(t *testing.T) {
+			articles, err := collection.GetCollectionItems()
 
-			wanted := []*Article{
+			wanted := []*CollectionItem{
 				article,
 			}
 			assert.NoError(t, err)
